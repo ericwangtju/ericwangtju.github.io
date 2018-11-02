@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="王轶涵">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="王轶涵">
+<meta property="og:description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="王轶涵">
+<meta name="twitter:description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
 
 
 
@@ -187,6 +190,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
@@ -226,6 +239,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -262,7 +285,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/iOS-Coding-Style-Guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王轶涵">
+      <meta itemprop="name" content="Eric Wang">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -330,7 +353,109 @@
       
         
           
-            
+            <h1 id="MHP-iOS-Objective-C代码规范1-0-2018年11月-by-Eric-Wang"><a href="#MHP-iOS-Objective-C代码规范1-0-2018年11月-by-Eric-Wang" class="headerlink" title="MHP iOS Objective-C代码规范1.0(2018年11月) by Eric Wang"></a>MHP iOS Objective-C代码规范1.0(2018年11月) by Eric Wang</h1><h2 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h2><p>命名使用美式英语,注释可以使用中文</p>
+<p><strong>推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIColor</span> *myColor = [<span class="built_in">UIColor</span> whiteColor];</span><br></pre></td></tr></table></figure></p>
+<p><strong>不推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIColor</span> *myColour = [<span class="built_in">UIColor</span> whiteColour];</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h2><p>使用 <code>#pragma mark -</code>将类中的方法进行分组<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark - Lifecycle</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)init &#123;&#125;</span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;&#125;</span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;&#125;</span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;&#125;</span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - Custom Accessors</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setCustomProperty:(<span class="keyword">id</span>)value &#123;&#125;</span><br><span class="line">- (<span class="keyword">id</span>)customProperty &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - IBActions</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)submitData:(<span class="keyword">id</span>)sender &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - Public</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)publicMethod &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - Private</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)privateMethod &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - Protocol conformance</span></span><br><span class="line"><span class="meta">#pragma mark - UITextFieldDelegate</span></span><br><span class="line"><span class="meta">#pragma mark - UITableViewDataSource</span></span><br><span class="line"><span class="meta">#pragma mark - UITableViewDelegate</span></span><br><span class="line"><span class="meta">#pragma mark - NSCopying</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - NSObject</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)description &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="间距"><a href="#间距" class="headerlink" title="间距"></a>间距</h2><ul>
+<li>代码缩进为2.在xcode的偏好设置中设置</li>
+<li>方法的大括号(包括<code>if</code>/<code>else</code>/<code>switch</code>/<code>while</code> )需要和声明在同一行,而不是重新起一行</li>
+</ul>
+<p><strong>推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (user.isHappy)&#123;</span><br><span class="line">  <span class="comment">//Do something</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">//Do something else</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>不推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (user.isHappy)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//Do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//Do something else</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>每一个方法之间空一行作为间隔</li>
+<li>冒号分隔的方法的对齐方式</li>
+</ul>
+<p><strong>推荐写法</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// blocks are easily readable</span></span><br><span class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">1.0</span> animations:^&#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// colon-aligning makes the block indentation hard to read</span></span><br><span class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">1.0</span></span><br><span class="line">                 animations:^&#123;</span><br><span class="line">                     <span class="comment">// something</span></span><br><span class="line">                 &#125;</span><br><span class="line">                 completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">                     <span class="comment">// something</span></span><br><span class="line">                 &#125;];</span><br></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释是用来解释这么做的原因.任何的注释必须是最新的.没用的注释请删除<br>避免大段的注释.代码尽量写的具有解释性</p>
+<p>方法注释使用如下格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">方法描述</span><br><span class="line"></span><br><span class="line">@param 参数1描述</span><br><span class="line">@param 参数2描述 </span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><p>推荐使用长的,可描述性的方法名和变量名称<br>给一个对象命名时建议采用修饰+类型的方式</p>
+<p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIButton</span> *settingsButton;</span><br><span class="line"><span class="built_in">UILabel</span>  *titleLabel <span class="comment">//表示标题的label, 是UILabel类型</span></span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIButton</span> *setBut;</span><br></pre></td></tr></table></figure>
+<p>类名和常量名称前面使用两个或是三个字母的前缀,避免和系统的冲突.前缀使用大写<br>常量的名称使用大驼峰命名法,为了易于阅读,需要在前缀上添加相关联的类名<br>对于BOOL类型, 应加上is前缀, 比如- (BOOL)isEqualToString:(NSString *)aString</p>
+<p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSTimeInterval</span> <span class="keyword">const</span> RWTTutorialViewControllerNavigationFadeAnimationDuration = <span class="number">0.3</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSTimeInterval</span> <span class="keyword">const</span> fadetime = <span class="number">1.7</span>;</span><br></pre></td></tr></table></figure>
+<p>属性的名称使用小驼峰命名法</p>
+<p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *descriptiveVariableName;</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> varnm;</span><br></pre></td></tr></table></figure>
+<h3 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h3><p>当使用的是属性,推荐使用<code>self.</code> 成员变量可以使用下划线,本地的局部变量不要使用下划线</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>在方法名中,在(-/+)号之后有一个空格,参数之间需要添加一个空格</p>
+<p>在方法名中尽量不要使用and连接参数</p>
+<p><strong>推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setExampleText:(<span class="built_in">NSString</span> *)text image:(<span class="built_in">UIImage</span> *)image;</span><br><span class="line">- (<span class="keyword">void</span>)sendAction:(SEL)aSelector to:(<span class="keyword">id</span>)anObject forAllCells:(<span class="built_in">BOOL</span>)flag;</span><br><span class="line">- (<span class="keyword">id</span>)viewWithTag:(<span class="built_in">NSInteger</span>)tag;</span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithWidth:(<span class="built_in">CGFloat</span>)width height:(<span class="built_in">CGFloat</span>)height;</span><br></pre></td></tr></table></figure></p>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)setT:(<span class="built_in">NSString</span> *)text i:(<span class="built_in">UIImage</span> *)image;</span><br><span class="line">- (<span class="keyword">void</span>)sendAction:(SEL)aSelector :(<span class="keyword">id</span>)anObject :(<span class="built_in">BOOL</span>)flag;</span><br><span class="line">- (<span class="keyword">id</span>)taggedView:(<span class="built_in">NSInteger</span>)tag;</span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithWidth:(<span class="built_in">CGFloat</span>)width andHeight:(<span class="built_in">CGFloat</span>)height;</span><br><span class="line">- (<span class="keyword">instancetype</span>)initWith:(<span class="keyword">int</span>)width and:(<span class="keyword">int</span>)height;  <span class="comment">// Never do this.</span></span><br></pre></td></tr></table></figure>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量的命名要尽量可以描述用途.除了在for循环中可以使用单字母的变量,其他情况不能使用单字母变量</p>
+<p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">RWTTutorial</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">RWTTutorial</span> : <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">  <span class="built_in">NSString</span> *tutorialName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="属性修饰符"><a href="#属性修饰符" class="headerlink" title="属性修饰符"></a>属性修饰符</h2><p>在声明属性的时候,属性的修饰符优先显示内存管理类,然后是读写.</p>
+<p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *containerView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *containerView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br></pre></td></tr></table></figure>
+<p>如果属性具有可变副本(例如NSString),属性应该使用<code>copy</code>替代<code>strong</code></p>
+<p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *tutorialName;</span><br></pre></td></tr></table></figure>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量使用<code>static</code>声明,尽量不使用<code>#define</code></p>
+<p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> RWTAboutViewControllerCompanyName = <span class="string">@"RayWenderlich.com"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> <span class="keyword">const</span> RWTImageThumbnailHeight = <span class="number">50.0</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#define CompanyName @<span class="meta-string">"RayWenderlich.com"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#define thumbnailHeight 2</span></span><br></pre></td></tr></table></figure>
+<p>当使用到了通知的时候,需要将通知名称定义成常量,这样可以避免重复<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extern NSString * const OCFooDidBecomeBarNotification</span><br><span class="line"></span><br><span class="line">NSString * const OCFooDidBecomeBarNotification = @&quot;OCFooDidBecomeBarNotification&quot;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><p>推荐使用Apple推荐写法<br><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, RWTLeftMenuTopItemType) &#123;</span><br><span class="line">  RWTLeftMenuTopItemMain,</span><br><span class="line">  RWTLeftMenuTopItemShows,</span><br><span class="line">  RWTLeftMenuTopItemSchedule</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>可以在枚举值的后面赋值</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, RWTGlobalConstants) &#123;</span><br><span class="line">  RWTPinSizeMin = <span class="number">1</span>,</span><br><span class="line">  RWTPinSizeMax = <span class="number">5</span>,</span><br><span class="line">  RWTPinCountMin = <span class="number">100</span>,</span><br><span class="line">  RWTPinCountMax = <span class="number">500</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>避免使用旧式的k前缀写法<br><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> GlobalConstants &#123;</span><br><span class="line">  kMaxPinSize = <span class="number">5</span>,</span><br><span class="line">  kMaxPinCount = <span class="number">500</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Switch写法"><a href="#Switch写法" class="headerlink" title="Switch写法"></a>Switch写法</h2><p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (condition) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span>: &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="comment">// Multi-line example using braces</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>: </span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当需要使用穿透时候</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (condition) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    <span class="comment">// ** fall-through! **</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    <span class="comment">// code executed for values 1 and 2</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>: </span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当switch使用的是枚举值,那么就不需要写default<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (menuType) &#123;</span><br><span class="line">  <span class="keyword">case</span> RWTLeftMenuTopItemMain:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> RWTLeftMenuTopItemShows:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> RWTLeftMenuTopItemSchedule:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="波尔类型"><a href="#波尔类型" class="headerlink" title="波尔类型"></a>波尔类型</h2><p>Objective-C 使用 <code>YES</code> 和 <code>NO</code>.   因为 <code>nil</code> 解析成 <code>NO</code> 没有必要判断. 不要使用YES去比较</p>
+<p><strong>推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (someObject) &#123;&#125;</span><br><span class="line"><span class="keyword">if</span> (![anotherObject boolValue]) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>不推荐写法:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (someObject == <span class="literal">nil</span>) &#123;&#125;</span><br><span class="line"><span class="keyword">if</span> ([anotherObject boolValue] == <span class="literal">NO</span>) &#123;&#125;</span><br><span class="line"><span class="keyword">if</span> (isAwesome == <span class="literal">YES</span>) &#123;&#125; <span class="comment">// Never do this.</span></span><br><span class="line"><span class="keyword">if</span> (isAwesome == <span class="literal">true</span>) &#123;&#125; <span class="comment">// Never do this.</span></span><br></pre></td></tr></table></figure>
+<p>如果一个bool属性是形容性的,那么需要在属性中添加getter=isXXXX<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">getter</span>=isEditable) <span class="built_in">BOOL</span> editable;</span><br></pre></td></tr></table></figure></p>
+<h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><p><strong>推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!error) &#123;</span><br><span class="line">  <span class="keyword">return</span> success;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>不推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (error)</span><br><span class="line">  <span class="keyword">return</span> success;</span><br></pre></td></tr></table></figure></p>
+<p>or</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!error) <span class="keyword">return</span> success;</span><br></pre></td></tr></table></figure>
+<h3 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h3><p>对于添加判断,需要添加上括号</p>
+<p><strong>推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSInteger</span> value = <span class="number">5</span>;</span><br><span class="line">result = (value != <span class="number">0</span>) ? x : y;</span><br><span class="line"></span><br><span class="line"><span class="built_in">BOOL</span> isHorizontal = <span class="literal">YES</span>;</span><br><span class="line">result = isHorizontal ? x : y;</span><br></pre></td></tr></table></figure></p>
+<p><strong>不推荐写法:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = a &gt; b ? x = c &gt; d ? c : d : y;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Init方法"><a href="#Init方法" class="headerlink" title="Init方法"></a>Init方法</h2><p>返回值使用<code>instancetype&#39;</code>而不是<code>id</code>.</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">instancetype</span>)init &#123;</span><br><span class="line">  <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Xcode-project"><a href="#Xcode-project" class="headerlink" title="Xcode project"></a>Xcode project</h2><p>为了避免文件杂乱，物理文件应该保持和 Xcode 项目文件同步。Xcode 创建的任何组（group）都必须在文件系统有相应的映射。为了更清晰，代码不仅应该按照类型进行分组，也可以根据功能进行分组。</p>
+<h2 id="其他需要注意的"><a href="#其他需要注意的" class="headerlink" title="其他需要注意的"></a>其他需要注意的</h2><pre><code>1.每月对第三方SDK进行更新
+2.向项目中添加第三方SDK时,只引入必要的文件.例如readme文件以及info.plist文件等不要引用
+3.对第三方的引入严格把关,避免和原项目中文件冲突
+4.尽量不要暴露mutable类型的对象在public interface, 建议在.h定义一个Inmutable类型的属性, 然后在.m的get函数里面返回一个内部定义的mutable变量
+5.避免出现魔鬼数字
+6.当发现实现某一方法需要传递的参数太多时, 就预示着你应该聚合成一个model类了
+7.类中使用了通知或是KVO时,注意移除监听
+8.在block中为避免使用weakSelf,还要使用strongSelf
+9.NSArray, NSDictionary成员的判空保护.在addObject或insertObject到NSArray或者NSDictionary时最好加一下判空保护,
+10.在每次提交的之前进行检查,有没有warning,以及代码静态分析.例如在视图的生命周期的方法中经常忘记调用[super viewWillAppear.....].还有没有使用过的变量等问题
+11.关于页面布局的方式，对于单一简单的部分视图可以使用xib或是sb，控制器尽量不要使用sb进行构建
+</code></pre><h2 id="代码保护神"><a href="#代码保护神" class="headerlink" title="代码保护神"></a>代码保护神</h2><p>//<br>//                       <em>oo0oo</em><br>//                      o8888888o<br>//                      88” . “88<br>//                      (| -_- |)<br>//                      0\  =  /0<br>//                    <strong><em>/`—‘\</em></strong><br>//                  .’ \|     |// ‘.<br>//                 / \|||  :  |||// \<br>//                / <em>||||| -:- |||||- \<br>//               |   | \\  -  /// |   |<br>//               | \</em>|  ‘’-–/‘’  |_/ |<br>//               \  .-__  ‘-‘  <strong>_/-. /<br>//             _</strong>‘. .’  /–.–\  <code>. .&#39;___
+//          .&quot;&quot; &#39;&lt;</code>.<strong>__&lt;|&gt;_/_</strong>.’ &gt;’ “”.<br>//         | | :  <code>- \</code>.;<code>\ _ /</code>;.<code>/ -</code> : | |<br>//         \  \ <code>_.   \_ __\ /__ _/   .-</code> /  /<br>//     =====<code>-.____</code>.<strong>_ ___</strong>/<strong><em>.-`</em></strong>.-‘=====<br>//                       `=—=’<br>//<br>//<br>//     <del>~</del><del>~</del><del>~</del><del>~</del><del>~</del><del>~</del><del>~</del><del>~</del>~~~<br>//<br>//               佛祖保佑         永无BUG<br>//<br>//<br>//</p>
+
           
         
       
@@ -381,7 +506,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/当提示No-such-module-XXX的解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王轶涵">
+      <meta itemprop="name" content="Eric Wang">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -501,7 +626,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王轶涵">
+      <meta itemprop="name" content="Eric Wang">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -648,8 +773,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">王轶涵</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Eric Wang" />
+            
+              <p class="site-author-name" itemprop="name">Eric Wang</p>
+              <p class="site-description motion-element" itemprop="description">每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -704,7 +833,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">王轶涵</span>
+  <span class="author" itemprop="copyrightHolder">Eric Wang</span>
 
   
 </div>
