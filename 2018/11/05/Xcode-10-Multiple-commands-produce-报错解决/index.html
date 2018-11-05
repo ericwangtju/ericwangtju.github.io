@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="王轶涵">
 <meta property="og:description" content="用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。解决方案（如图）：找到对应得第三方库的 target &amp;gt; Build phase &amp;gt; Copy B">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-05T02:53:03.061Z">
+<meta property="og:updated_time" content="2018-11-05T03:05:57.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode 10 Multiple commands produce 报错解决">
 <meta name="twitter:description" content="用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。解决方案（如图）：找到对应得第三方库的 target &amp;gt; Build phase &amp;gt; Copy B">
@@ -342,7 +342,8 @@
       
 
       
-        <p>用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。<br>解决方案（如图）：找到对应得第三方库的 target &gt; Build phase &gt; Copy Bundle Resource/Compile Sources，删掉第三方库中重复的上述文件，然后再 clean 一下基本可以解决问题。如果还报错的话，可以将重新添加一下到compile source 文件中。</p>
+        <p>用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。<br>解决方案（如图）：找到对应得第三方库的 target &gt; Build phase &gt; Copy Bundle Resource/Compile Sources，删掉第三方库中重复的上述文件，然后再 clean 一下基本可以解决问题。如果还报错的话，可以将重新添加一下到compile source 文件中。<br>还有时候需要修改xcode的配置暂时解决了编译报错的问题。</p>
+<p>xcode–file–Workspace Settings–Build System–legacy Build System</p>
 
       
     </div>
@@ -382,6 +383,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/05/解决-xcode-报compress-PNG-files-error错误/" rel="prev" title="解决 xcode 报compress PNG files error错误">
+                解决 xcode 报compress PNG files error错误 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -453,7 +458,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
