@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。解决方案（如图）：找到对应得第三方库的 target &amp;gt; Build phase &amp;gt; Copy B">
+<meta name="description" content="首先说一下我遇到这个问题的环境：xcode 10.1，使用的 iPhone8模拟器，demo 就是一个新创建的空项目。在项目刚启动控制台就输出了“MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this  platform”。虽然不影响项目的运行，但是摆在那里让人很不舒适。找了一些帖子看了看，没有明确的说法。虽然没有详细的原">
 <meta name="keywords" content="iOS 开发中遇到的问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode 10 Multiple commands produce 报错解决">
-<meta property="og:url" content="http://yoursite.com/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/index.html">
+<meta property="og:title" content="关于MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this platform问题的解决">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/关于MobileGestalt-c-890-MGIsDeviceOneOfType-is-not-supported-on-this-platform问题的解决/index.html">
 <meta property="og:site_name" content="王轶涵">
-<meta property="og:description" content="用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。解决方案（如图）：找到对应得第三方库的 target &amp;gt; Build phase &amp;gt; Copy B">
+<meta property="og:description" content="首先说一下我遇到这个问题的环境：xcode 10.1，使用的 iPhone8模拟器，demo 就是一个新创建的空项目。在项目刚启动控制台就输出了“MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this  platform”。虽然不影响项目的运行，但是摆在那里让人很不舒适。找了一些帖子看了看，没有明确的说法。虽然没有详细的原">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-05T03:05:57.133Z">
+<meta property="og:updated_time" content="2018-11-14T07:40:37.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode 10 Multiple commands produce 报错解决">
-<meta name="twitter:description" content="用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。解决方案（如图）：找到对应得第三方库的 target &amp;gt; Build phase &amp;gt; Copy B">
+<meta name="twitter:title" content="关于MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this platform问题的解决">
+<meta name="twitter:description" content="首先说一下我遇到这个问题的环境：xcode 10.1，使用的 iPhone8模拟器，demo 就是一个新创建的空项目。在项目刚启动控制台就输出了“MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this  platform”。虽然不影响项目的运行，但是摆在那里让人很不舒适。找了一些帖子看了看，没有明确的说法。虽然没有详细的原">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/关于MobileGestalt-c-890-MGIsDeviceOneOfType-is-not-supported-on-this-platform问题的解决/"/>
 
 
 
 
 
-  <title>Xcode 10 Multiple commands produce 报错解决 | 王轶涵</title>
+  <title>关于MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this platform问题的解决 | 王轶涵</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/关于MobileGestalt-c-890-MGIsDeviceOneOfType-is-not-supported-on-this-platform问题的解决/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eric Wang">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Xcode 10 Multiple commands produce 报错解决</h1>
+          <h1 class="post-title" itemprop="name headline">关于MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this platform问题的解决</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-05T10:48:51+08:00">
-                2018-11-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T15:34:52+08:00">
+                2018-11-14
               </time>
             
 
@@ -323,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/" itemprop="commentCount"></span>
+                <a href="/2018/11/14/关于MobileGestalt-c-890-MGIsDeviceOneOfType-is-not-supported-on-this-platform问题的解决/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/14/关于MobileGestalt-c-890-MGIsDeviceOneOfType-is-not-supported-on-this-platform问题的解决/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -352,8 +352,7 @@
       
 
       
-        <p>用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。<br>解决方案（如图）：找到对应得第三方库的 target &gt; Build phase &gt; Copy Bundle Resource/Compile Sources，删掉第三方库中重复的上述文件，然后再 clean 一下基本可以解决问题。如果还报错的话，可以将重新添加一下到compile source 文件中。<br>还有时候需要修改xcode的配置暂时解决了编译报错的问题。</p>
-<p>xcode–file–Workspace Settings–Build System–legacy Build System</p>
+        <p>首先说一下我遇到这个问题的环境：xcode 10.1，使用的 iPhone8模拟器，demo 就是一个新创建的空项目。在项目刚启动控制台就输出了“MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this<br>  platform”。虽然不影响项目的运行，但是摆在那里让人很不舒适。找了一些帖子看了看，没有明确的说法。虽然没有详细的原理说明，但是解决方案很简单，就是换一个模拟器。我换成了 xs max 后就没有这个警告了。后来又尝试了几个模拟器，发现之后新出的几款 iPhone 模拟器上不会报这个日志。日后如果能弄清原因会在更新这个问题。</p>
 
       
     </div>
@@ -384,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/17/当提示No-such-module-XXX的解决方法/" rel="next" title="当提示No such module XXX的解决方法">
-                <i class="fa fa-chevron-left"></i> 当提示No such module XXX的解决方法
+              <a href="/2018/11/14/使用-Fastlane-对-iOS-项目持续集成方案研究/" rel="next" title="使用 Fastlane 对 iOS 项目持续集成方案研究">
+                <i class="fa fa-chevron-left"></i> 使用 Fastlane 对 iOS 项目持续集成方案研究
               </a>
             
           </div>
@@ -393,10 +392,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/05/解决-xcode-报compress-PNG-files-error错误/" rel="prev" title="解决 xcode 报compress PNG files error错误">
-                解决 xcode 报compress PNG files error错误 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

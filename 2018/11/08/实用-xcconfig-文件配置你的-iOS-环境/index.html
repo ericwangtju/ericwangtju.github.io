@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS 开发环境," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="首先声明：此文翻译了“Let’s Set Up Your iOS Environments”，并在其基础上结合自己的实践总结而成。如果有什么问题，请联系我。 通常我们在开发中，会遇到多种环境切来切去的情况。这些环境可能包含了开发、测试、生产环境等，每个环境下有对应的服务器地址以及各种key等。很多人是使用宏定义结合注释来进行切换。这样使用起来很不方便，主要还容易出错。如果上线的 app 居然是用的">
+<meta name="keywords" content="iOS 开发环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实用 xcconfig 文件配置你的 iOS 环境">
+<meta property="og:url" content="http://yoursite.com/2018/11/08/实用-xcconfig-文件配置你的-iOS-环境/index.html">
+<meta property="og:site_name" content="王轶涵">
+<meta property="og:description" content="首先声明：此文翻译了“Let’s Set Up Your iOS Environments”，并在其基础上结合自己的实践总结而成。如果有什么问题，请联系我。 通常我们在开发中，会遇到多种环境切来切去的情况。这些环境可能包含了开发、测试、生产环境等，每个环境下有对应的服务器地址以及各种key等。很多人是使用宏定义结合注释来进行切换。这样使用起来很不方便，主要还容易出错。如果上线的 app 居然是用的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/kqxD6UKQme19y3DnHW8q_img1.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/skqxD6UKQme19y3DnHW8q_img1.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/ilwCrHZRTMCuyFsxT0hX_img3.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/uzP1zD8QS6OaMp1bD9ek_img4.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/USf2XyJmRwqBzi0u5cJi_img5.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/qNUaj7DET061HeA8akdp_img6.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/fvpB2iJVThO9p0TTZYlQ_img7.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/9armWSiZS7K4JtmLnidJ_img9.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/8UppdQZARBOSHz9ImGgj_img10.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/1zRoZl9ZTMqQ8q2zlR6F_img11.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/T5klHT0RIibz2JX9yvxH_img12.png">
+<meta property="og:image" content="http://phv318mbq.bkt.clouddn.com/ViyhICQDSRGW2oKJoM1Z_img13.png">
+<meta property="og:updated_time" content="2018-11-08T06:45:23.423Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实用 xcconfig 文件配置你的 iOS 环境">
+<meta name="twitter:description" content="首先声明：此文翻译了“Let’s Set Up Your iOS Environments”，并在其基础上结合自己的实践总结而成。如果有什么问题，请联系我。 通常我们在开发中，会遇到多种环境切来切去的情况。这些环境可能包含了开发、测试、生产环境等，每个环境下有对应的服务器地址以及各种key等。很多人是使用宏定义结合注释来进行切换。这样使用起来很不方便，主要还容易出错。如果上线的 app 居然是用的">
+<meta name="twitter:image" content="http://phv318mbq.bkt.clouddn.com/kqxD6UKQme19y3DnHW8q_img1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/08/实用-xcconfig-文件配置你的-iOS-环境/"/>
+
+
+
+
+
+  <title>实用 xcconfig 文件配置你的 iOS 环境 | 王轶涵</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王轶涵</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/实用-xcconfig-文件配置你的-iOS-环境/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eric Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王轶涵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">实用 xcconfig 文件配置你的 iOS 环境</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T13:20:54+08:00">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/08/实用-xcconfig-文件配置你的-iOS-环境/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/08/实用-xcconfig-文件配置你的-iOS-环境/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先声明：此文翻译了<a href="https://robots.thoughtbot.com/let-s-setup-your-ios-environments" target="_blank" rel="noopener">“Let’s Set Up Your iOS Environments”</a>，并在其基础上结合自己的实践总结而成。如果有什么问题，请联系我。</p>
+<p>通常我们在开发中，会遇到多种环境切来切去的情况。这些环境可能包含了开发、测试、生产环境等，每个环境下有对应的服务器地址以及各种key等。很多人是使用宏定义结合注释来进行切换。这样使用起来很不方便，主要还容易出错。如果上线的 app 居然是用的是某个开发的 key，那时候你就可以准备跑路了。为了能够安全愉快进行开发，我们有必要将这种危险的，但是没有技术的活一次性搞定，那么可以使用 xcconfig 文件将这些环境进行分离管理，减少人为犯错的几率。</p>
+<p>.xcconfig 文件是一种对项目进行配置的文件，默认会有 debug 和 release 两种。但是我们的环境可不止这两种的，这里我们定义三种环境Development, Staging and Production。每一种环境都包含有 debug 和 release。</p>
+<h2 id="创建-configurations"><a href="#创建-configurations" class="headerlink" title="创建 configurations"></a>创建 configurations</h2><p>在 xcode 的导航区选择项目文件，注意不是 target。然后再 info 的 tab 中可以找到 configurations 项</p>
+<p><img src="http://phv318mbq.bkt.clouddn.com/kqxD6UKQme19y3DnHW8q_img1.png" alt="Pic"></p>
+<p>此时我们需要六个 configuration，分别是</p>
+<ul>
+<li>Debug (Development)</li>
+<li>Debug (Staging)</li>
+<li>Debug (Production)</li>
+<li>Release (Development)</li>
+<li>Release (Staging)</li>
+<li>Release (Production)<br><img src="http://phv318mbq.bkt.clouddn.com/skqxD6UKQme19y3DnHW8q_img1.png" alt="Pic"><br><img src="http://phv318mbq.bkt.clouddn.com/ilwCrHZRTMCuyFsxT0hX_img3.png" alt="Pic"></li>
+</ul>
+<h2 id="Schemes"><a href="#Schemes" class="headerlink" title="Schemes"></a>Schemes</h2><p>每一个 xcode 项目中至少包含了一个 以项目为名称的 scheme。scheme 包含了一组编译、运行、测试以及打包的配置信息。我们可以使用 scheme 并结合 configurations 来对环境进行区分<br>在 xcode 的顶部的工具栏上，点击 manage schemes。<br><img src="http://phv318mbq.bkt.clouddn.com/uzP1zD8QS6OaMp1bD9ek_img4.png" alt="Pic"></p>
+<p>在 scheme manager 中我们可以看到 schemes 列表。我们选中当前项目名称的 scheme，在点击下面齿轮选择 duplicate。</p>
+<p><img src="http://phv318mbq.bkt.clouddn.com/USf2XyJmRwqBzi0u5cJi_img5.png" alt="Pic"></p>
+<p>我们新建一个Development scheme。要确保每一个 action 中对应正确的 configuration</p>
+<p><img src="http://phv318mbq.bkt.clouddn.com/qNUaj7DET061HeA8akdp_img6.png" alt="Pic"></p>
+<p>我们在创建一个 Staging scheme。原来的默认的 scheme 设置为 production 环境的 scheme。注意新建的 scheme 一定要勾选 shared 选项，否则其他组员是没有办法使用的<br><img src="http://phv318mbq.bkt.clouddn.com/fvpB2iJVThO9p0TTZYlQ_img7.png" alt="Pic"></p>
+<h2 id="创建-xcconfig-files"><a href="#创建-xcconfig-files" class="headerlink" title="创建 xcconfig files"></a>创建 xcconfig files</h2><p>我们在 xcode 中创建一个新的文件如下图，命名为Development。注意不要勾选 targets。如果勾选了 target，name 就会把这个文件编译到项目包里面。</p>
+<p><img src="http://phv318mbq.bkt.clouddn.com/9armWSiZS7K4JtmLnidJ_img9.png" alt="Pic"><br><img src="http://phv318mbq.bkt.clouddn.com/8UppdQZARBOSHz9ImGgj_img10.png" alt="Pic"><br>重复上面的操作，创建 Staging和 Production</p>
+<p>在 xcconfig 中我们定义几个键值对，例如 ROOT_URL, API_KEY , APP_NAME and BUNDLE_IDENTIFIER。当我们选用不同的环境进行编译运行的时候，会根据对应的 xcconfig 文件进行显示。</p>
+<p><strong><em>Development</em></strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Development.xcconfig</span></span><br><span class="line"><span class="comment">// Server URL</span></span><br><span class="line">ROOT_URL = http:/$()/localhost:<span class="number">3000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Keys</span></span><br><span class="line">API_KEY = <span class="number">783</span>u9djd8a_hkzos7jd803001nd</span><br><span class="line"></span><br><span class="line"><span class="comment">// App Settings</span></span><br><span class="line">APP_NAME = MyTestApp (dev)</span><br><span class="line">APP_BUNDLE_ID = com.company.dev</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>Staging</em></strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Staging.xcconfig</span></span><br><span class="line"><span class="comment">// Server URL</span></span><br><span class="line">ROOT_URL = https:/$()/www.company.com</span><br><span class="line"></span><br><span class="line"><span class="comment">// Keys</span></span><br><span class="line">API_KEY = <span class="number">89</span>dhdyd93380dkqmoe_hd830dhq</span><br><span class="line"></span><br><span class="line"><span class="comment">// App Settings</span></span><br><span class="line">APP_NAME = MyTestApp (staging)</span><br><span class="line">APP_BUNDLE_ID = com.company.staging</span><br></pre></td></tr></table></figure>
+<p><strong><em>Production</em></strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Production.xcconfig</span></span><br><span class="line"><span class="comment">// Server URL</span></span><br><span class="line">ROOT_URL = https:/$()/www.company.com</span><br><span class="line"></span><br><span class="line"><span class="comment">// Keys</span></span><br><span class="line">API_KEY = <span class="number">9</span>ud0930djd_md9zdjdko3830lb0d</span><br><span class="line"></span><br><span class="line"><span class="comment">// App Settings</span></span><br><span class="line">APP_NAME = MyTestApp</span><br><span class="line">APP_BUNDLE_ID = com.company.MyTestApp</span><br></pre></td></tr></table></figure>
+<h2 id="给-Configurations-设置-xcconfig-文件"><a href="#给-Configurations-设置-xcconfig-文件" class="headerlink" title="给 Configurations 设置 xcconfig 文件"></a>给 Configurations 设置 xcconfig 文件</h2><p>让我们重新回到项目的 info 选项中，点击 configuration 的箭头，进行如下图的配置。注意不要配错。</p>
+<p><img src="http://phv318mbq.bkt.clouddn.com/1zRoZl9ZTMqQ8q2zlR6F_img11.png" alt="Pic"></p>
+<p>注意，如果你的项目此前使用了 cocoapods 的话，你需要进行如下的步骤，否则会报错</p>
+<ul>
+<li>删除原有的.xcworkspace文件</li>
+<li>删除 podfile.lock 文件和 pods 文件夹</li>
+<li>重新执行 pod install<br>此时终端回报警告，此时打开新的xcworkspace文件，在 xcconfig 中导入 pod 中对应的 xcconfig 文件，#include “Pods/Target Support Files/Pods-MyTestApp/Pods-MyTestApp.release.xcconfig”。每一个 xcconfig 中应该是导入两个文件，即一个 debug 和一个 release<br><img src="http://phv318mbq.bkt.clouddn.com/T5klHT0RIibz2JX9yvxH_img12.png" alt="Pic"></li>
+</ul>
+<h2 id="配置-info-plist-文件"><a href="#配置-info-plist-文件" class="headerlink" title="配置 info.plist 文件"></a>配置 info.plist 文件</h2><p>在 项目的 info.plist中配置刚才输入的配置属性，如APP_NAME 和 APP_BUNDLE_ID.<br><img src="http://phv318mbq.bkt.clouddn.com/ViyhICQDSRGW2oKJoM1Z_img13.png" alt="Pic"></p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>当项目中使用国际化时，每种语言下对应了一个 app 名称，而每种配置环境下又有一个名字，那么 xcode 就会以国际化的 infoplist 文件为最后的配置依据。这种情况，我也没有找到合适的方法去解决。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS-开发环境/" rel="tag"># iOS 开发环境</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/08/使用-next-主题设置侧边栏不起效果的解决方法/" rel="next" title="使用 next 主题设置侧边栏不起效果的解决方法">
+                <i class="fa fa-chevron-left"></i> 使用 next 主题设置侧边栏不起效果的解决方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/14/使用-Fastlane-对-iOS-项目持续集成方案研究/" rel="prev" title="使用 Fastlane 对 iOS 项目持续集成方案研究">
+                使用 Fastlane 对 iOS 项目持续集成方案研究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Eric Wang" />
+            
+              <p class="site-author-name" itemprop="name">Eric Wang</p>
+              <p class="site-description motion-element" itemprop="description">每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ericwangtju" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangyihan3555@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-configurations"><span class="nav-number">1.</span> <span class="nav-text">创建 configurations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schemes"><span class="nav-number">2.</span> <span class="nav-text">Schemes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-xcconfig-files"><span class="nav-number">3.</span> <span class="nav-text">创建 xcconfig files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给-Configurations-设置-xcconfig-文件"><span class="nav-number">4.</span> <span class="nav-text">给 Configurations 设置 xcconfig 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-info-plist-文件"><span class="nav-number">5.</span> <span class="nav-text">配置 info.plist 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eric Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GFlAJyW9uyIimcH1EvBIKGhf-gzGzoHsz',
+        appKey: 'MI72mem2om9RhQiXMsiNBo2e',
+        placeholder: '欢迎留言讨论,请注意文明用语!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="iOS 开发中遇到的问题," />
+  <meta name="keywords" content="iOS 开发环境," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。解决方案（如图）：找到对应得第三方库的 target &amp;gt; Build phase &amp;gt; Copy B">
-<meta name="keywords" content="iOS 开发中遇到的问题">
+<meta name="description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
+<meta name="keywords" content="iOS 开发环境">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode 10 Multiple commands produce 报错解决">
-<meta property="og:url" content="http://yoursite.com/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/index.html">
+<meta property="og:title" content="使用 Fastlane 对 iOS 项目持续集成方案研究">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/使用-Fastlane-对-iOS-项目持续集成方案研究/index.html">
 <meta property="og:site_name" content="王轶涵">
-<meta property="og:description" content="用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。解决方案（如图）：找到对应得第三方库的 target &amp;gt; Build phase &amp;gt; Copy B">
+<meta property="og:description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-05T03:05:57.133Z">
+<meta property="og:updated_time" content="2018-11-14T02:16:52.155Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode 10 Multiple commands produce 报错解决">
-<meta name="twitter:description" content="用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。解决方案（如图）：找到对应得第三方库的 target &amp;gt; Build phase &amp;gt; Copy B">
+<meta name="twitter:title" content="使用 Fastlane 对 iOS 项目持续集成方案研究">
+<meta name="twitter:description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/使用-Fastlane-对-iOS-项目持续集成方案研究/"/>
 
 
 
 
 
-  <title>Xcode 10 Multiple commands produce 报错解决 | 王轶涵</title>
+  <title>使用 Fastlane 对 iOS 项目持续集成方案研究 | 王轶涵</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/使用-Fastlane-对-iOS-项目持续集成方案研究/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eric Wang">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Xcode 10 Multiple commands produce 报错解决</h1>
+          <h1 class="post-title" itemprop="name headline">使用 Fastlane 对 iOS 项目持续集成方案研究</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-05T10:48:51+08:00">
-                2018-11-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T10:15:39+08:00">
+                2018-11-14
               </time>
             
 
@@ -323,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/05/Xcode-10-Multiple-commands-produce-报错解决/" itemprop="commentCount"></span>
+                <a href="/2018/11/14/使用-Fastlane-对-iOS-项目持续集成方案研究/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/14/使用-Fastlane-对-iOS-项目持续集成方案研究/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -352,9 +352,7 @@
       
 
       
-        <p>用Xcode10跑之前的项目，也就报了一种类型的错误：Multiple commands produce。这个的原因是项目中使用第三方库，里面有README.md，README.txt，LICENSE，Info.plist，图片文件之类的，而且是不止一个库中有，重复的这些文件，导致的报错。<br>解决方案（如图）：找到对应得第三方库的 target &gt; Build phase &gt; Copy Bundle Resource/Compile Sources，删掉第三方库中重复的上述文件，然后再 clean 一下基本可以解决问题。如果还报错的话，可以将重新添加一下到compile source 文件中。<br>还有时候需要修改xcode的配置暂时解决了编译报错的问题。</p>
-<p>xcode–file–Workspace Settings–Build System–legacy Build System</p>
-
+        
       
     </div>
     
@@ -371,7 +369,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS-开发中遇到的问题/" rel="tag"># iOS 开发中遇到的问题</a>
+            <a href="/tags/iOS-开发环境/" rel="tag"># iOS 开发环境</a>
           
         </div>
       
@@ -384,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/17/当提示No-such-module-XXX的解决方法/" rel="next" title="当提示No such module XXX的解决方法">
-                <i class="fa fa-chevron-left"></i> 当提示No such module XXX的解决方法
+              <a href="/2018/11/08/实用-xcconfig-文件配置你的-iOS-环境/" rel="next" title="实用 xcconfig 文件配置你的 iOS 环境">
+                <i class="fa fa-chevron-left"></i> 实用 xcconfig 文件配置你的 iOS 环境
               </a>
             
           </div>
@@ -394,8 +392,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/05/解决-xcode-报compress-PNG-files-error错误/" rel="prev" title="解决 xcode 报compress PNG files error错误">
-                解决 xcode 报compress PNG files error错误 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/14/关于MobileGestalt-c-890-MGIsDeviceOneOfType-is-not-supported-on-this-platform问题的解决/" rel="prev" title="关于MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this platform问题的解决">
+                关于MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this platform问题的解决 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
