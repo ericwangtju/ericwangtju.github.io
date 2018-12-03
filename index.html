@@ -252,6 +252,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/02/iOS-国际化常见字段/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eric Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王轶涵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/02/iOS-国际化常见字段/" itemprop="url">iOS 国际化常见字段</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-02T20:13:47+08:00">
+                2018-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/02/iOS-国际化常见字段/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/02/iOS-国际化常见字段/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>InfoPlist.String xcode.8 中配置</p>
+<p>English<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">CFBundleDisplayName = &quot;ProjectName&quot;;</span><br><span class="line"></span><br><span class="line">NSAppleMusicUsageDescription = &quot;Application needs your permission to access the Media Library&quot;;</span><br><span class="line">NSBluetoothPeripheralUsageDescription = &quot;App need your permission to access Bluetooth&quot;;</span><br><span class="line">NSCalendarsUsageDescription = &quot;App need your permission to access Calendar&quot;;</span><br><span class="line">NSCameraUsageDescription = &quot;App need your permission to access the camera&quot;;</span><br><span class="line">NSHealthShareUsageDescription = &quot;App need your consent to share access to health&quot;;</span><br><span class="line">NSHealthUpdateUsageDescription = &quot;App need your consent to access health update&quot;;</span><br><span class="line">NSLocationAlwaysUsageDescription = &quot;App need your consent to always access the location&quot;;</span><br><span class="line">NSLocationUsageDescription = &quot;App need your permission to access the location&quot;;</span><br><span class="line">NSLocationWhenInUseUsageDescription = &quot;App need your consent to use during the visit position&quot;;</span><br><span class="line">NSMicrophoneUsageDescription = &quot;App need your permission to access the microphone&quot;;</span><br><span class="line">NSMotionUsageDescription = &quot;App need your permission to access Exercise and Fitness&quot;;</span><br><span class="line">NSPhotoLibraryUsageDescription = &quot;App need your permission to access the album&quot;;</span><br><span class="line">NSRemindersUsageDescription = &quot;App need your permission to access reminders&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>中文<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">CFBundleDisplayName = &quot;项目名称&quot;;</span><br><span class="line"></span><br><span class="line">NSAppleMusicUsageDescription = &quot;App需要您的同意,才能访问媒体资料库&quot;;</span><br><span class="line">NSBluetoothPeripheralUsageDescription = &quot;App需要您的同意,才能访问蓝牙&quot;;</span><br><span class="line">NSCalendarsUsageDescription = &quot;App需要您的同意,才能访问日历&quot;;</span><br><span class="line">NSCameraUsageDescription = &quot;App需要您的同意,才能访问相机&quot;;</span><br><span class="line">NSHealthShareUsageDescription = &quot;App需要您的同意,才能访问健康分享&quot;;</span><br><span class="line">NSHealthUpdateUsageDescription = &quot;App需要您的同意,才能访问健康更新&quot;;</span><br><span class="line">NSLocationAlwaysUsageDescription = &quot;App需要您的同意,才能始终访问位置&quot;;</span><br><span class="line">NSLocationUsageDescription = &quot;App需要您的同意,才能访问位置&quot;;</span><br><span class="line">NSLocationWhenInUseUsageDescription = &quot;App需要您的同意,才能在使用期间访问位置&quot;;</span><br><span class="line">NSMicrophoneUsageDescription = &quot;App需要您的同意,才能访问麦克风&quot;;</span><br><span class="line">NSMotionUsageDescription = &quot;App需要您的同意,才能访问运动与健身&quot;;</span><br><span class="line">NSPhotoLibraryUsageDescription = &quot;App需要您的同意,才能访问相册&quot;;</span><br><span class="line">NSRemindersUsageDescription = &quot;App需要您的同意,才能访问提醒事项&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>Localizable.String 中配置<br>English<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">//By Date</span><br><span class="line">&quot;Sunday&quot; = &quot;SUN&quot;;</span><br><span class="line">&quot;Monday&quot; = &quot;MON&quot;;</span><br><span class="line">&quot;Tuesday&quot; = &quot;TUE&quot;;</span><br><span class="line">&quot;Wednesday&quot; = &quot;WED&quot;;</span><br><span class="line">&quot;Thursday&quot; = &quot;THU&quot;;</span><br><span class="line">&quot;Friday&quot; = &quot;FRI&quot;;</span><br><span class="line">&quot;Saturday&quot; = &quot;SAT&quot;;</span><br><span class="line"></span><br><span class="line">&quot;January&quot; = &quot;JAN&quot;;</span><br><span class="line">&quot;February&quot; = &quot;FEB&quot;;</span><br><span class="line">&quot;March&quot; = &quot;MAR&quot;;</span><br><span class="line">&quot;April&quot; = &quot;APR&quot;;</span><br><span class="line">&quot;May&quot; = &quot;MAY&quot;;</span><br><span class="line">&quot;June&quot; = &quot;JUN&quot;;</span><br><span class="line">&quot;July&quot; = &quot;JUL&quot;;</span><br><span class="line">&quot;August&quot; = &quot;AUG&quot;;</span><br><span class="line">&quot;September&quot; = &quot;SEP&quot;;</span><br><span class="line">&quot;October&quot; = &quot;OCT&quot;;</span><br><span class="line">&quot;November&quot; = &quot;NOV&quot;;</span><br><span class="line">&quot;December&quot; = &quot;DEC&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Today&quot; = &quot;Today&quot;;</span><br><span class="line">&quot;Yesterday&quot; = &quot;Yesterday&quot;;</span><br><span class="line">&quot;Tomorrow&quot; = &quot;Tomorrow&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Year&quot; = &quot;Year&quot;;</span><br><span class="line">&quot;Month&quot; = &quot;Month&quot;;</span><br><span class="line">&quot;Day&quot; = &quot;Day&quot;;</span><br><span class="line"></span><br><span class="line">//Project Common Fields</span><br><span class="line">&quot;Menu&quot; = &quot;Menu&quot;;</span><br><span class="line">&quot;Home&quot; = &quot;Home&quot;;</span><br><span class="line">&quot;Explore&quot; = &quot;Explore&quot;;</span><br><span class="line">//style @1</span><br><span class="line">&quot;Log in&quot; = &quot;Log in&quot;;</span><br><span class="line">&quot;Register&quot; = &quot;Register&quot;;</span><br><span class="line">&quot;Quit&quot; = &quot;Quit&quot;;</span><br><span class="line">//style @2</span><br><span class="line">&quot;Sign in&quot; = &quot;Sign in&quot;;</span><br><span class="line">&quot;Sign up&quot; = &quot;Sign up&quot;;</span><br><span class="line">&quot;Sign out&quot; = &quot;Sign out&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Loading...&quot; = &quot;Loading...&quot;;</span><br><span class="line">&quot;Exiting...&quot; = &quot;Exiting...&quot;;</span><br><span class="line">&quot;No more data&quot; = &quot;No more data&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Request successful&quot; = &quot;Request successful&quot;;</span><br><span class="line">&quot;Request failed&quot; = &quot;Request failed&quot;;</span><br><span class="line">&quot;Request error&quot; = &quot;Request error&quot;;</span><br><span class="line">&quot;Server exception&quot; = &quot;Server exception&quot;;</span><br><span class="line">&quot;Network anomaly&quot; = &quot;Network anomaly&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Success&quot; = &quot;Success&quot;;</span><br><span class="line">&quot;Fail&quot; = &quot;Fail&quot;;</span><br><span class="line">&quot;Error&quot; = &quot;Error&quot;;</span><br><span class="line">&quot;Warning&quot; = &quot;Warning&quot;;</span><br><span class="line">&quot;Notification&quot; = &quot;Notification&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Settings&quot;  = &quot;Settings&quot;;</span><br><span class="line">&quot;Help&quot; = &quot;Help&quot;;</span><br><span class="line">&quot;Detail&quot; = &quot;Detail&quot;;</span><br><span class="line"></span><br><span class="line">&quot;OK&quot; = &quot;OK&quot;;</span><br><span class="line">&quot;Canale&quot; = &quot;Canale&quot;;</span><br><span class="line">&quot;Add&quot; = &quot;Add&quot;;</span><br><span class="line">&quot;Delete&quot; = &quot;Delete&quot;;</span><br><span class="line">&quot;Edit&quot; = &quot;Edit&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Previous&quot; = &quot;Previous&quot;;</span><br><span class="line">&quot;Next&quot; = &quot;Next&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Agree&quot; = &quot;Agree&quot;;</span><br><span class="line">&quot;Reject&quot; = &quot;Reject&quot;;</span><br><span class="line">&quot;Comment&quot; = &quot;Comment&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Start&quot; = &quot;Start&quot;;</span><br><span class="line">&quot;End&quot; = &quot;End&quot;;</span><br><span class="line">&quot;Done&quot; = &quot;Done&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Send&quot; = &quot;Send&quot;;</span><br><span class="line">&quot;Save&quot; = &quot;Save&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Status&quot; = &quot;Status&quot;;</span><br><span class="line">&quot;Time&quot; = &quot;Time&quot;;</span><br><span class="line">&quot;Location&quot; = &quot;Location&quot;;</span><br><span class="line">&quot;Address&quot; = &quot;Address&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>中文<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">//日期相关</span><br><span class="line">&quot;Sunday&quot; = &quot;日&quot;;</span><br><span class="line">&quot;Monday&quot; = &quot;一&quot;;</span><br><span class="line">&quot;Tuesday&quot; = &quot;二&quot;;</span><br><span class="line">&quot;Wednesday&quot; = &quot;三&quot;;</span><br><span class="line">&quot;Thursday&quot;= &quot;四&quot;;</span><br><span class="line">&quot;Friday&quot; = &quot;五&quot;;</span><br><span class="line">&quot;Saturday&quot;= &quot;六&quot;;</span><br><span class="line"></span><br><span class="line">&quot;January&quot; = &quot;一月&quot;;</span><br><span class="line">&quot;February&quot; = &quot;二月&quot;;</span><br><span class="line">&quot;March&quot; = &quot;三月&quot;;</span><br><span class="line">&quot;April&quot; = &quot;四月&quot;;</span><br><span class="line">&quot;May&quot; = &quot;五月&quot;;</span><br><span class="line">&quot;June&quot; = &quot;六月&quot;;</span><br><span class="line">&quot;July&quot; = &quot;七月&quot;;</span><br><span class="line">&quot;August&quot; = &quot;八月&quot;;</span><br><span class="line">&quot;September&quot; = &quot;九月&quot;;</span><br><span class="line">&quot;October&quot; = &quot;十月&quot;;</span><br><span class="line">&quot;November&quot; = &quot;十一月&quot;;</span><br><span class="line">&quot;December&quot; = &quot;十二月&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Today&quot; = &quot;今天&quot;;</span><br><span class="line">&quot;Yesterday&quot; = &quot;昨天&quot;;</span><br><span class="line">&quot;Tomorrow&quot; = &quot;明天&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Year&quot; = &quot;年&quot;;</span><br><span class="line">&quot;Month&quot; = &quot;月&quot;;</span><br><span class="line">&quot;Day&quot; = &quot;日&quot;;</span><br><span class="line"></span><br><span class="line">//项目常见字段</span><br><span class="line">&quot;Menu&quot; = &quot;菜单&quot;;</span><br><span class="line">&quot;Home&quot; = &quot;首页&quot;;</span><br><span class="line">&quot;Explore&quot; = &quot;发现&quot;;</span><br><span class="line">//方式 @1</span><br><span class="line">&quot;Log in&quot; = &quot;登录&quot;;</span><br><span class="line">&quot;Register&quot; = &quot;注册&quot;;</span><br><span class="line">&quot;Quit&quot; = &quot;退出&quot;;</span><br><span class="line">//方式 @2</span><br><span class="line">&quot;Sign in&quot; = &quot;登录&quot;;</span><br><span class="line">&quot;Sign up&quot; = &quot;注册&quot;;</span><br><span class="line">&quot;Sign out&quot; = &quot;退出&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Loading...&quot; = &quot;加载中...&quot;;</span><br><span class="line">&quot;Exiting...&quot; = &quot;退出中...&quot;;</span><br><span class="line">&quot;No more data&quot; = &quot;没有更多数据&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Request successful&quot; = &quot;请求成功&quot;;</span><br><span class="line">&quot;Request failed&quot; = &quot;请求失败&quot;;</span><br><span class="line">&quot;Request error&quot; = &quot;请求出错&quot;;</span><br><span class="line">&quot;Server exception&quot; = &quot;服务器异常&quot;;</span><br><span class="line">&quot;Network anomaly&quot; = &quot;网络异常&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Success&quot; = &quot;成功&quot;;</span><br><span class="line">&quot;Fail&quot; = &quot;失败&quot;;</span><br><span class="line">&quot;Error&quot; = &quot;错误&quot;;</span><br><span class="line">&quot;Warning&quot; = &quot;警告&quot;;</span><br><span class="line">&quot;Notification&quot; = &quot;通知&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Settings&quot;  = &quot;设置&quot;;</span><br><span class="line">&quot;Help&quot; = &quot;帮助&quot;;</span><br><span class="line">&quot;Detail&quot; = &quot;详情&quot;;</span><br><span class="line"></span><br><span class="line">&quot;OK&quot; = &quot;确定&quot;;</span><br><span class="line">&quot;Canale&quot; = &quot;取消&quot;;</span><br><span class="line">&quot;Add&quot; = &quot;添加&quot;;</span><br><span class="line">&quot;Delete&quot; = &quot;删除&quot;;</span><br><span class="line">&quot;Edit&quot; = &quot;编辑&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Previous&quot; = &quot;上一步&quot;;</span><br><span class="line">&quot;Next&quot; = &quot;下一步&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Agree&quot; = &quot;同意&quot;;</span><br><span class="line">&quot;Reject&quot; = &quot;拒绝&quot;;</span><br><span class="line">&quot;Comment&quot; = &quot;评论&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Start&quot; = &quot;开始&quot;;</span><br><span class="line">&quot;End&quot; = &quot;结束&quot;;</span><br><span class="line">&quot;Done&quot; = &quot;完成&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Send&quot; = &quot;发送&quot;;</span><br><span class="line">&quot;Save&quot; = &quot;保存&quot;;</span><br><span class="line"></span><br><span class="line">&quot;Status&quot; = &quot;状态&quot;;</span><br><span class="line">&quot;Time&quot; = &quot;时间&quot;;</span><br><span class="line">&quot;Location&quot; = &quot;地点&quot;;</span><br><span class="line">&quot;Address&quot; = &quot;地址&quot;;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/关于MobileGestalt-c-890-MGIsDeviceOneOfType-is-not-supported-on-this-platform问题的解决/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1731,7 +1887,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
