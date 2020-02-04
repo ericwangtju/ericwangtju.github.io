@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS 开发中遇到的问题," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="王轶涵">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta name="description" content="在进行iOS的TableView开发时,我们有时候可能会需要单方向的禁止滑动,但是官方直接提供的方法只能禁止滑动,就是向上向下都不能滑动,这样就缺少了灵活性这是官方的方法,可以禁止TableView的滑动self.tableView.isScrollEnabled = false下面我提供一种方法禁止单方向滑动,是利用了scrollViewDidScroll覆盖方法1234567override">
+<meta name="keywords" content="iOS 开发中遇到的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案">
+<meta property="og:url" content="http://yoursite.com/2018/11/30/iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案/index.html">
 <meta property="og:site_name" content="王轶涵">
-<meta property="og:description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
+<meta property="og:description" content="在进行iOS的TableView开发时,我们有时候可能会需要单方向的禁止滑动,但是官方直接提供的方法只能禁止滑动,就是向上向下都不能滑动,这样就缺少了灵活性这是官方的方法,可以禁止TableView的滑动self.tableView.isScrollEnabled = false下面我提供一种方法禁止单方向滑动,是利用了scrollViewDidScroll覆盖方法1234567override">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-30T07:05:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王轶涵">
-<meta name="twitter:description" content="每个人都会累，没人能为你承担所有的伤悲和疲惫，所以人总有那么一段时间要学会自己长大。">
+<meta name="twitter:title" content="iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案">
+<meta name="twitter:description" content="在进行iOS的TableView开发时,我们有时候可能会需要单方向的禁止滑动,但是官方直接提供的方法只能禁止滑动,就是向上向下都不能滑动,这样就缺少了灵活性这是官方的方法,可以禁止TableView的滑动self.tableView.isScrollEnabled = false下面我提供一种方法禁止单方向滑动,是利用了scrollViewDidScroll覆盖方法1234567override">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/30/iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案/"/>
 
 
 
 
 
-  <title>归档 | 王轶涵</title>
+  <title>iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案 | 王轶涵</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,111 +239,183 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 13 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eric Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王轶涵">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/11/14/使用-Fastlane-对-iOS-项目持续集成方案研究/" itemprop="url">
-              
-                <span itemprop="name">使用 Fastlane 对 iOS 项目持续集成方案研究</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-14T10:15:39+08:00"
-              content="2017-11-14" >
-          11-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T15:02:23+08:00">
+                2018-11-30
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/30/iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/30/iOS单方向禁止UITableView滑动，禁止向上或向下滑动解决方案/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/02/iOS-Coding-Style-Guide/" itemprop="url">
-              
-                <span itemprop="name">iOS Coding Style Guide</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-02T13:17:13+08:00"
-              content="2017-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>在进行iOS的TableView开发时,我们有时候可能会需要单方向的禁止滑动,但是官方直接提供的方法只能禁止滑动,就是向上向下都不能滑动,这样就缺少了灵活性<br>这是官方的方法,可以禁止TableView的滑动<br>self.tableView.isScrollEnabled = false<br>下面我提供一种方法禁止单方向滑动,是利用了scrollViewDidScroll覆盖方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">override func scrollViewDidScroll(_ scrollView: UIScrollView) &#123; </span><br><span class="line">    //上下滑动的距离 let off_y = scrollView.contentOffset.y </span><br><span class="line">    //如果off_y小于0,则为向下滑动,然后再用setContentOffset方法设置整个tableview的偏移量为(0,0)这样看起来就像无法向下滑动一样</span><br><span class="line">    if off_y &lt; 0  &#123; </span><br><span class="line">        self.tableView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false) </span><br><span class="line">    &#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS-开发中遇到的问题/" rel="tag"># iOS 开发中遇到的问题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/14/关于MobileGestalt-c-890-MGIsDeviceOneOfType-is-not-supported-on-this-platform问题的解决/" rel="next" title="关于MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this platform问题的解决">
+                <i class="fa fa-chevron-left"></i> 关于MobileGestalt.c:890: MGIsDeviceOneOfType is not supported on this platform问题的解决
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/02/iOS-国际化常见字段/" rel="prev" title="iOS 国际化常见字段">
+                iOS 国际化常见字段 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -349,6 +423,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -590,6 +671,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
